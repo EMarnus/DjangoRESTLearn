@@ -1,8 +1,9 @@
+from django.db import IntegrityError
 from rest_framework import serializers
 from .models import Like
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class LikeSerializer(serializers.ModelSerializer):
     """
     Serializer for the Like model
     The create method handles the unique constraint on 'owner' and 'post'
@@ -15,3 +16,11 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'post', 'created_at',
         ]
+
+    def create(self, validated_data):
+        try:
+            return super().create(validated_data)
+        except IntegrityError:
+            raise serializers.ValidationError({
+                'detail': 'possible duplicate'
+            })
