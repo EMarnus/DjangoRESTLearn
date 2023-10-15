@@ -65,7 +65,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-emarnus-djangorestlearn-d9m06jdae1q.ws-eu105.gitpod.io',
     'localhost',
-    'learn-django-rest.herokuapp.com']
+    'learn-django-rest-8c1f3578007f.herokuapp.com']
 
 
 # Application definition
