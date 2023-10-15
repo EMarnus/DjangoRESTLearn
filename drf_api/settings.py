@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import re
 
 if os.path.exists('env.py'):
     import env
@@ -65,7 +66,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-emarnus-djangorestlearn-d9m06jdae1q.ws-eu105.gitpod.io',
     'localhost',
-    'learn-django-rest-8c1f3578007f.herokuapp.com']
+    os.environ.get('ALLOWED_HOST')]
 
 
 # Application definition
